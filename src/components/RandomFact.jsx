@@ -4,12 +4,13 @@ import { getRandomFact } from '../utils/getRandomFact'
 import CountryLink from './CountryLink'
 
 const RandomFact = () => {
-  const { country, fact, font } = getRandomFact()
+  const { country: countryFact, fact, font } = getRandomFact()
   const countries = useContext(CountriesContext)
-  const { flag } = countries?.find(c => c.commonName === country)
+  const country = countries?.find(c => c.commonName === countryFact)
+
   return (
     <>
-      <h3 className='text-xl'><CountryLink name={country} flag={flag} reverse /></h3>
+      <h3 className='text-xl'><CountryLink name={countryFact} flag={country?.flag} reverse /></h3>
       <p>{fact}</p>
       <p>Font: <a href={font} target='_blank' rel='noreferrer'>{font}</a></p>
 

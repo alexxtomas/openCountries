@@ -1,4 +1,4 @@
-import RandomFact from '../components/RandomData'
+import RandomFact from '../components/RandomFact'
 import Title from '../components/Title'
 import Top10 from '../components/Top10'
 import { randomNumber } from '../utils/randomNumber'
