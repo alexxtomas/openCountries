@@ -1,9 +1,8 @@
 import { useContext } from 'react'
-import { Link } from 'react-router-dom'
 import { CountriesContext } from '../context/CountriesContext'
+import CountryLink from './CountryLink'
 const Top10 = ({ which }) => {
   const countries = useContext(CountriesContext)
-
   const tops = [
     {
       title: 'Top 10 Most Populous Countries',
@@ -14,27 +13,27 @@ const Top10 = ({ which }) => {
       data: [...countries].sort((a, b) => a.population - b.population).splice(6, 10)
     }
   ]
-
   let index
-
-  if (which === 'mostPopulous') {
-    index = 0
-  } else if (which === 'smallest') {
-    index = 1
-  }
+  if (which === 1) index = 0
+  else if (which === 2) index = 1
+  else index = 1
 
   const { title, data } = tops[index]
 
   return (
     <>
-      <h3 className='text-4xl tracking-wide mb-4'>{title}</h3>
-      <ul>
+      <h3 className=' text-3xl font-semibold tracking-wide mb-4'>{title}</h3>
+      <ol className='pr-5'>
+
         {
-          data.map(({ commonName, flag }) => <li className='text-2xl cursor-pointer p-3' key={commonName}><Link to={`/country/${commonName}`}>{commonName} <img className='w-9 h-6 inline  object-fill' src={flag} alt={commonName} /></Link></li>)
+          data.map(({ commonName, flag }) => <li key={commonName} className='text-xl pl-15 pb-2'><CountryLink name={commonName} flag={flag} /></li>)
         }
-      </ul>
+
+      </ol>
     </>
   )
 }
 
 export default Top10
+
+//  <li key={commonName} className='text-xl pl-10'> <CountryLink name={commonName} falg={falg} /> </li>

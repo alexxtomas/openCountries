@@ -16,9 +16,9 @@ const Search = () => {
   }
 
   return (
-    <>
-      <div className='text-center w-full mt-5 mb-10'>
-        <input className='w-3/6 h-8 rounded-lg text-center focus:ring-3 dark:bg-transparent' placeholder='Search a country ' type='search' value={filter} onChange={(evt) => setFilter(evt.target.value)} />
+    <section className='min-h-screen text-white bg-gray-900 body-font '>
+      <div className='text-center w-full  mb-10'>
+        <input className='w-3/6 h-8 rounded-lg text-center bg-slate-100 text-black focus:ring-3 dark:bg-transparent' placeholder='Search a country ' type='search' value={filter} onChange={(evt) => setFilter(evt.target.value)} />
       </div>
       <div className='flex flex-wrap justify-around gap-5'>
         {
@@ -26,13 +26,13 @@ const Search = () => {
             return (
               <figure onClick={handleClick} key={commonName} id={commonName} className='cursor-pointer'>
                 <img onClick={handleClick} id={commonName} alt={`${commonName} flag`} src={flag} className='w-96 h-56 object-fill rounded-lg' />
-                <figcaption className='text-center text-2x1 font-bold tracking-tight text-gray-900 dark:text-white' id={commonName}>{commonName}</figcaption>
+                <figcaption className='text-center text-2x1 font-bold tracking-tight  ' id={commonName}>{commonName}</figcaption>
               </figure>
             )
           })
         }
       </div>
-    </>
+    </section>
   )
 }
 export default Search

@@ -16,7 +16,8 @@ const getCountryByName = async (country) => {
   try {
     const request = await fetch(`${baseURL}/name/${country}`)
     const data = await request.json()
-    return data
+    if (data?.status) return data
+    return transformCountries(data[0])
   } catch (e) {
     console.error(e)
   }
