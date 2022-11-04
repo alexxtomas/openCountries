@@ -21,7 +21,7 @@ const Top10 = ({ which }) => {
   const { title, data } = tops[index]
 
   return (
-    <>
+    <div className='xl:w-2/4 lg:w-1/2 md:w-full px-8 py-6 mx-auto text-center'>
       <h3 className=' text-3xl font-semibold tracking-wide mb-4'>{title}</h3>
       <ol className='pr-5'>
 
@@ -30,7 +30,7 @@ const Top10 = ({ which }) => {
         }
 
       </ol>
-    </>
+    </div>
   )
 }
 
