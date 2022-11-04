@@ -14,8 +14,10 @@ const Search = () => {
 
   return (
     <section className='min-h-screen text-white bg-gray-900 body-font '>
+
       <SearchEngine handleChange={handleChange} placeholder='Search a country' />
       <CountryListOfCards elements={filtredElements} />
+
       <div ref={checkpoint} />
     </section>
   )

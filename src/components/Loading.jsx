@@ -1,0 +1,15 @@
+const Loading = () => {
+  return (
+    <div className='min-h-screen bg-gray-900 flex flex-col justify-start items-center'>
+      <svg
+        className='ring text-white'
+        viewBox='25 25 50 50'
+        strokeWidth='5'
+      >
+        <circle cx='50' cy='50' r='20' />
+      </svg>
+    </div>
+  )
+}
+
+export default Loading

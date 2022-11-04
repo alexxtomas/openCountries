@@ -1,19 +1,38 @@
+import { lazy, Suspense } from 'react'
 import { Route, Routes } from 'react-router-dom'
-import NotFound from '../pages/404'
-import About from '../pages/About'
-import Country from '../pages/Country'
-import Home from '../pages/Home'
-import Search from '../pages/Search'
+import Loading from './Loading'
+
 const Main = () => {
+  const Search = lazy(
+    () => import('../pages/Search')
+  )
+
+  const Home = lazy(
+    () => import('../pages/Home')
+  )
+
+  const Country = lazy(
+    () => import('../pages/Country')
+  )
+
+  const About = lazy(
+    () => import('../pages/About')
+  )
+
+  const NotFound = lazy(
+    () => import('../pages/404')
+  )
   return (
     <main>
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='search' element={<Search />} />
-        <Route path='about' element={<About />} />
-        <Route path='country/:name' element={<Country />} />
-        <Route path='*' element={<NotFound />} />
-      </Routes>
+      <Suspense fallback={<Loading />}>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='search' element={<Search />} />
+          <Route path='about' element={<About />} />
+          <Route path='country/:name' element={<Country />} />
+          <Route path='*' element={<NotFound />} />
+        </Routes>
+      </Suspense>
     </main>
   )
 }

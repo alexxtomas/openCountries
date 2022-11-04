@@ -3,9 +3,7 @@ import CountryDetails from '../components/CountryDetails'
 import { useCountry } from '../hooks/useCountry'
 const Country = () => {
   const { name } = useParams()
-  const { country, loading } = useCountry(name)
-
-  if (loading) return <h1 className='text-white min-w-full bg-gray-900'>Loading...</h1>
+  const { country } = useCountry(name)
 
   return (
     <section className='text-white min-w-full  flex flex-col  min-h-screen  bg-gray-900 body-font'>
